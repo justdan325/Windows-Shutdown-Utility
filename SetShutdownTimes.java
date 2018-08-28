@@ -97,9 +97,8 @@ public class SetShutdownTimes
 			int[] positions = {0, 1, 3, 4};
 			for(int i = 0; i < 4; i++)
 			{
-				if(!isDigit("" + entry.charAt( positions[i])))
+				if(!isDigit("" + entry.charAt( positions[i])) || !isHour(entry.substring(0,2)) || !isMin(entry.substring(3)))
 				{
-					Prin.tln("The substring: " + entry.charAt( positions[i]));
 					time = false;
 					break;
 				}
@@ -108,7 +107,12 @@ public class SetShutdownTimes
 
 		return time;
 	}
-
+	
+	/**
+	*Returns true if the given string is a numerical digit
+	*@param potential digit
+	*@return confirmation
+	*/
 	private static boolean isDigit(String input)
 	{
 		boolean digit = true;
@@ -123,7 +127,39 @@ public class SetShutdownTimes
 
 		return digit;
 	}
-
+	
+	/**
+	*Returns true if given string is between 00 and 23
+	*@param potential minutes
+	*@return confirmation
+	*/
+	private static boolean isHour(String input)
+	{
+		boolean hour = false;
+		int convertedInput = Integer.parseInt(input);
+		
+		if(convertedInput >= 0 && convertedInput <= 23)
+			hour = true;
+		
+		return hour;
+	}
+	
+	
+	/**
+	*Returns true if given string is between 0 and 60
+	*@param potential minutes
+	*@return confirmation
+	*/
+	private static boolean isMin(String input)
+	{
+		boolean min = false;
+		int convertedInput = Integer.parseInt(input);
+		
+		if(convertedInput >= 0 && convertedInput <= 60)
+			min = true;
+		
+		return min;
+	}
 
 	//----------------------------------------------------------------------------------------------------Display Methods--------------------------------------------------------------------------------------------------------------------
 
