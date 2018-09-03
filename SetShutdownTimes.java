@@ -172,10 +172,10 @@ public class SetShutdownTimes
 		Prin.title("Automatic Shutdown for Windows",  "*", COL);
 		Prin.ln(2);
 
-		Prin.tln("You will shortly be prompted to enter shutdown times for the various days of the\nweek.\n");
+		Prin.tln("You will shortly be prompted to enter shutdown times for the various days of \nthe week.\n");
 		Prin.tln("Keep in mind that you must use military time, e.g. 1:00 PM is written as 13:00.\n");
 		Prin.tln("This program honors the shutdown time for whichever day of the week it was \nstarted on. Should you set the time as 13:00 on Monday, for example, and you \nstart your computer in the afternoon that day, this program will shut the \nsystem down on 1 AM Tuesday morning.");
-		Prin.ln(2);
+		Prin.ln();
 	}
 
 	/**
@@ -189,7 +189,7 @@ public class SetShutdownTimes
 		byte end = 5;
 		boolean reset = false;
 		Prin.title("Current Shutdown Times", " ", COL);
-		Prin.ln(2);
+		Prin.ln();
 
 		//get times from the database file
 		String times = FileCMD.readFile(DATABASE);
